@@ -91,10 +91,10 @@ class TestRunner {
 
     this.test('addCustomWord should add valid custom word', () => {
       const initialSize = validator.validWords.size;
-      const result = validator.addCustomWord('TRULY');
+      const result = validator.addCustomWord('ZEBRA');
       this.assertTrue(result.valid);
-      this.assertEquals(result.word, 'TRULY');
-      this.assertTrue(validator.validWords.has('TRULY'));
+      this.assertEquals(result.word, 'ZEBRA');
+      this.assertTrue(validator.validWords.has('ZEBRA'));
       this.assertTrue(validator.validWords.size > initialSize);
     });
 
@@ -159,15 +159,16 @@ class TestRunner {
 
     this.test('reset should reset to default word list', () => {
       const freshValidator = new WordValidator();
-      freshValidator.addCustomWord('TRULY');
+      const originalSize = freshValidator.validWords.size;
+
+      freshValidator.addCustomWord('ZEBRA');
       freshValidator.removeWord('WORLD');
 
-      const initialSize = freshValidator.validWords.size;
       freshValidator.reset();
 
-      this.assertTrue(freshValidator.validWords.size !== initialSize);
+      this.assertEquals(freshValidator.validWords.size, originalSize);
       this.assertTrue(freshValidator.validWords.has('WORLD'));
-      this.assertFalse(freshValidator.validWords.has('TRULY'));
+      this.assertFalse(freshValidator.validWords.has('ZEBRA'));
     });
 
     this.test('exportWords should export all words as array', () => {
