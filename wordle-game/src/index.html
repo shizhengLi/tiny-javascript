@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wordle 游戏</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>WORDLE</h1>
+            <div class="game-info">
+                <span id="game-status">输入5个字母的单词</span>
+            </div>
+        </header>
+
+        <main>
+            <div id="game-board" class="game-board"></div>
+
+            <div id="keyboard" class="keyboard"></div>
+
+            <div class="game-controls">
+                <button id="new-game-btn">新游戏</button>
+                <button id="hint-btn">提示</button>
+            </div>
+        </main>
+
+        <div id="game-over-modal" class="modal hidden">
+            <div class="modal-content">
+                <h2 id="game-result"></h2>
+                <p id="correct-word"></p>
+                <button id="play-again-btn">再玩一次</button>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="js/index.js"></script>
+</body>
+</html>
